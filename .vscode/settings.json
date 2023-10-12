@@ -1,0 +1,73 @@
+{
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "json"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
+  "conventionalCommits.scopes": [
+    "admin",
+    "api",
+    "app",
+    "bank",
+    "certificate",
+    "document",
+    "infra",
+    "lib",
+    "methodology",
+    "nx",
+    "palantir",
+    "smart-contract",
+    "store",
+    "terraform",
+    "token",
+    "web"
+  ],
+  "cSpell.words": [
+    "airbnb",
+    "CNPJ",
+    "commitlint",
+    "dtos",
+    "fastify",
+    "gnupg",
+    "hashicorp",
+    "IERC",
+    "ipfs",
+    "ipnft",
+    "keccak",
+    "lokijs",
+    "mocharc",
+    "nestjs",
+    "nomicfoundation",
+    "nomiclabs",
+    "nrwl",
+    "ntegral",
+    "oidc",
+    "palantir",
+    "pino",
+    "sonarjs",
+    "ssut",
+    "swcrc",
+    "tflint",
+    "tfstate",
+    "tlsv",
+    "toset",
+    "typia",
+    "viem",
+    "wagmi",
+    "Wagmi"
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

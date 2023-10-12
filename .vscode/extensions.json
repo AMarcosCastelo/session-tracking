@@ -4,6 +4,10 @@
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
     "ms-playwright.playwright",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "hyoretsu.code-spell-checker-language-pack",
+    "streetsidesoftware.code-spell-checker",
+    "hashicorp.terraform",
+    "nomicfoundation.hardhat-solidity"
   ]
 }
