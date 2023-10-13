@@ -7,7 +7,6 @@
     "dbaeumer.vscode-eslint",
     "hyoretsu.code-spell-checker-language-pack",
     "streetsidesoftware.code-spell-checker",
-    "hashicorp.terraform",
     "nomicfoundation.hardhat-solidity"
   ]
 }

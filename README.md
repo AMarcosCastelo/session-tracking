@@ -1,5 +1,6 @@
 # session-tracking
-The ***Session Tracking*** is a productivity application that leverages the Pomodoro technique to help users enhance their focus and productivity. It allows users to break their work or study tasks into manageable intervals, typically 25 minutes in length, separated by short 5-minute breaks.
+
+The **_Session Tracking_** is a productivity application that leverages the Pomodoro technique to help users enhance their focus and productivity. It allows users to break their work or study tasks into manageable intervals, typically 25 minutes in length, separated by short 5-minute breaks.
 
 Key Features:
 
@@ -23,4 +24,4 @@ Key Features:
 
 - **In-App Insights**: Gain insights and tips on how to improve your focus and productivity.
 
-The ***Session Tracking*** is a valuable tool for individuals seeking a structured approach to time management, allowing them to maximize their concentration, minimize distractions, and boost overall productivity.
+The **_Session Tracking_** is a valuable tool for individuals seeking a structured approach to time management, allowing them to maximize their concentration, minimize distractions, and boost overall productivity.

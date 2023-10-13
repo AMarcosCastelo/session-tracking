@@ -17,6 +17,7 @@ module.exports = {
     'lorem-ipsum',
     'node',
     'npm',
+    'Pomodoros',
     'typescript',
   ],
   ignorePaths: [

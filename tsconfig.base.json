@@ -32,7 +32,7 @@
     "resolveJsonModule": true,
     "strictPropertyInitialization": false,
     "verbatimModuleSyntax": true,
-    "strictNullChecks": true,
+    "strictNullChecks": true
   },
   "exclude": ["node_modules", "tmp"]
 }
