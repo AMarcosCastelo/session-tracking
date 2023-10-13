@@ -14,24 +14,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "always"
   },
-  "conventionalCommits.scopes": [
-    "admin",
-    "api",
-    "app",
-    "bank",
-    "certificate",
-    "document",
-    "infra",
-    "lib",
-    "methodology",
-    "nx",
-    "palantir",
-    "smart-contract",
-    "store",
-    "terraform",
-    "token",
-    "web"
-  ],
+  "conventionalCommits.scopes": ["config", "app", "lib", "nx", "web"],
   "cSpell.words": [
     "airbnb",
     "CNPJ",

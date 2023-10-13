@@ -97,6 +97,9 @@ devDependencies:
   cspell:
     specifier: 7.3.7
     version: 7.3.7
+  cz-conventional-changelog:
+    specifier: ^3.3.0
+    version: 3.3.0
   cz-git:
     specifier: 1.7.1
     version: 1.7.1
