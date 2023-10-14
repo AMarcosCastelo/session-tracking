@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "ui": ["libs/web/src/index.ts"]
+      "ui": ["libs/web/ui/src/index.ts"],
+      "utils": ["libs/web/utils/src/index.ts"]
     },
     "strict": true,
     "allowUnreachableCode": false,
