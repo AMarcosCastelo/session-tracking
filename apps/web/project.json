@@ -58,5 +58,5 @@
     },
     "lint": {}
   },
-  "tags": []
+  "tags": ["app:web", "stack:web"]
 }

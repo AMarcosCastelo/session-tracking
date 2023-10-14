@@ -68,16 +68,16 @@ module.exports = {
             allow: [],
             depConstraints: [
               {
-                sourceTag: 'app:api',
-                onlyDependOnLibsWithTags: ['app:api', 'app:any'],
+                sourceTag: 'scope:shared',
+                onlyDependOnLibsWithTags: ['scope:shared'],
               },
               {
-                sourceTag: 'app:store',
-                onlyDependOnLibsWithTags: ['app:store', 'app:any'],
-              },
-              {
-                allSourceTags: ['type:lib', 'app:api'],
-                notDependOnLibsWithTags: ['app:api'],
+                sourceTag: 'app:web',
+                onlyDependOnLibsWithTags: [
+                  'type:lib',
+                  'scope:shared',
+                  'stack:web',
+                ],
               },
               {
                 sourceTag: 'app:any',
@@ -99,10 +99,6 @@ module.exports = {
               {
                 sourceTag: 'stack:web',
                 onlyDependOnLibsWithTags: ['stack:web', 'stack:any'],
-              },
-              {
-                sourceTag: 'stack:hardhat',
-                bannedExternalImports: ['typia'],
               },
             ],
           },

@@ -7,6 +7,7 @@ module.exports = {
   language: 'en',
   words: vsCodeSettings['cSpell.words'],
   dictionaries: [
+    'airbnb',
     'companies',
     'cpp',
     'en_us',
@@ -15,6 +16,7 @@ module.exports = {
     'fullstack',
     'html',
     'lorem-ipsum',
+    'mocharc',
     'node',
     'npm',
     'Pomodoros',
