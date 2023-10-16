@@ -1,7 +1,4 @@
 module.exports = {
-  root: true,
-  ignorePatterns: ['**/*'],
-  plugins: ['@nx', 'github', 'perfectionist', 'promise'],
   extends: [
     'airbnb-base',
     'eslint:recommended',
@@ -14,23 +11,93 @@ module.exports = {
     'plugin:sonarjs/recommended',
     'plugin:unicorn/recommended',
   ],
-  rules: {
-    'eol-last': ['error', 'always'],
-    'no-restricted-syntax': 'off',
-    'filenames/match-regex': ['error', '^[a-z]+(-[a-z]+)*(.[a-z]+)+$'],
-  },
+  ignorePatterns: ['**/*'],
   overrides: [
     {
       files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
       rules: {
+        '@nx/enforce-module-boundaries': [
+          'error',
+          {
+            allow: [],
+            depConstraints: [
+              {
+                onlyDependOnLibsWithTags: ['scope:shared'],
+                sourceTag: 'scope:shared',
+              },
+              {
+                onlyDependOnLibsWithTags: [
+                  'type:lib',
+                  'scope:shared',
+                  'stack:web',
+                ],
+                sourceTag: 'app:web',
+              },
+              {
+                notDependOnLibsWithTags: ['/^app:(^any)+$/'],
+                onlyDependOnLibsWithTags: ['app:any'],
+                sourceTag: 'app:any',
+              },
+              {
+                onlyDependOnLibsWithTags: ['type:lib'],
+                sourceTag: 'type:app',
+              },
+              {
+                onlyDependOnLibsWithTags: ['type:lib'],
+                sourceTag: 'type:lib',
+              },
+              {
+                onlyDependOnLibsWithTags: ['stack:nest', 'stack:any'],
+                sourceTag: 'stack:nest',
+              },
+              {
+                onlyDependOnLibsWithTags: ['stack:web', 'stack:any'],
+                sourceTag: 'stack:web',
+              },
+            ],
+            enforceBuildableLibDependency: true,
+          },
+        ],
+        'arrow-body-style': ['warn', 'as-needed'],
         'class-methods-use-this': 'off',
-        'i18n-text/no-en': 'off',
         curly: ['error', 'all'],
-        'no-void': 'off',
         'eslint-comments/disable-enable-pair': 'off',
+        'eslint-comments/no-use': 'off',
+        'i18n-text/no-en': 'off',
         'import/prefer-default-export': 'off',
         'no-console': 'warn',
+        'no-void': 'off',
+        'padding-line-between-statements': [
+          'warn',
+          { blankLine: 'always', next: 'block-like', prev: '*' },
+          { blankLine: 'any', next: 'case', prev: 'case' },
+          { blankLine: 'always', next: 'return', prev: '*' },
+          {
+            blankLine: 'always',
+            next: '*',
+            prev: ['const', 'let', 'var'],
+          },
+          {
+            blankLine: 'any',
+            next: ['const', 'let', 'var'],
+            prev: ['const', 'let', 'var'],
+          },
+        ],
         'security/detect-non-literal-fs-filename': 'off',
+        'simple-import-sort/imports': [
+          'error',
+          {
+            groups: [
+              // React comes first, followed by third-party dependencies
+              ['^react', '^@?\\w'],
+              // Side effect imports (ex: import '../some-module')
+              ['^\\u0000'],
+              // Aliased imports (ex: import { Type } from '~/types')
+              ['^~/'],
+              // Relative imports come last
+            ],
+          },
+        ],
         'unicorn/no-null': 'off',
         'unicorn/prefer-module': 'off',
         'unicorn/prefer-top-level-await': 'off',
@@ -38,82 +105,32 @@ module.exports = {
           'error',
           {
             allowList: {
-              props: true,
               Props: true,
+              props: true,
             },
-            replacements: { e: false, lib: false },
-          },
-        ],
-        'arrow-body-style': ['warn', 'as-needed'],
-        'padding-line-between-statements': [
-          'warn',
-          { blankLine: 'always', prev: '*', next: 'block-like' },
-          { blankLine: 'any', prev: 'case', next: 'case' },
-          { blankLine: 'always', prev: '*', next: 'return' },
-          {
-            blankLine: 'always',
-            prev: ['const', 'let', 'var'],
-            next: '*',
-          },
-          {
-            blankLine: 'any',
-            prev: ['const', 'let', 'var'],
-            next: ['const', 'let', 'var'],
-          },
-        ],
-        '@nx/enforce-module-boundaries': [
-          'error',
-          {
-            enforceBuildableLibDependency: true,
-            allow: [],
-            depConstraints: [
-              {
-                sourceTag: 'scope:shared',
-                onlyDependOnLibsWithTags: ['scope:shared'],
-              },
-              {
-                sourceTag: 'app:web',
-                onlyDependOnLibsWithTags: [
-                  'type:lib',
-                  'scope:shared',
-                  'stack:web',
-                ],
-              },
-              {
-                sourceTag: 'app:any',
-                onlyDependOnLibsWithTags: ['app:any'],
-                notDependOnLibsWithTags: ['/^app:(^any)+$/'],
-              },
-              {
-                sourceTag: 'type:app',
-                onlyDependOnLibsWithTags: ['type:lib'],
-              },
-              {
-                sourceTag: 'type:lib',
-                onlyDependOnLibsWithTags: ['type:lib'],
-              },
-              {
-                sourceTag: 'stack:nest',
-                onlyDependOnLibsWithTags: ['stack:nest', 'stack:any'],
-              },
-              {
-                sourceTag: 'stack:web',
-                onlyDependOnLibsWithTags: ['stack:web', 'stack:any'],
-              },
-            ],
+            replacements: {
+              e: false,
+              lib: false,
+            },
           },
         ],
       },
     },
     {
-      files: ['*.ts', '*.tsx'],
       extends: [
         'airbnb-typescript/base',
         'plugin:@nx/typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
+      files: ['*.ts', '*.tsx'],
       rules: {
+        '@typescript-eslint/ban-ts-comment': [
+          'error',
+          {
+            'ts-expect-error': 'allow-with-description',
+          },
+        ],
         '@typescript-eslint/strict-boolean-expressions': [
           'error',
           {
@@ -121,17 +138,11 @@ module.exports = {
             allowNullableString: true,
           },
         ],
-        '@typescript-eslint/ban-ts-comment': [
-          'error',
-          {
-            'ts-expect-error': 'allow-with-description',
-          },
-        ],
       },
     },
     {
-      files: ['*.js', '*.jsx'],
       extends: ['plugin:@nx/javascript'],
+      files: ['*.js', '*.jsx'],
       rules: {},
     },
     {
@@ -147,36 +158,36 @@ module.exports = {
       },
     },
     {
-      files: ['*.spec.ts', '*.spec.tsx', '*.spec.js', '*.spec.jsx'],
-      plugins: ['jest-formatting', 'jest-async'],
+      env: {
+        jest: true,
+      },
       extends: [
         'plugin:jest-formatting/recommended',
         'plugin:jest/recommended',
       ],
-      env: {
-        jest: true,
-      },
+      files: ['*.spec.ts', '*.spec.tsx', '*.spec.js', '*.spec.jsx'],
+      plugins: ['jest-formatting', 'jest-async'],
       rules: {
-        'jest-async/expect-return': 'error',
-        '@typescript-eslint/no-unsafe-assignment': 'off',
-        'global-require': 'off',
-        '@typescript-eslint/unbound-method': 'off',
         '@typescript-eslint/consistent-type-assertions': 'off',
+        '@typescript-eslint/dot-notation': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
         '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/unbound-method': 'off',
+        'global-require': 'off',
+        'jest/expect-expect': [
+          'error',
+          { assertFunctionNames: ['expect', 'expectRequest'] },
+        ],
+        'jest-async/expect-return': 'error',
+        'no-await-in-loop': 'off',
+        'no-restricted-syntax': 'off',
         'security/detect-object-injection': 'off',
         'sonarjs/cognitive-complexity': 'off',
         'sonarjs/no-duplicate-string': 'off',
         'unicorn/no-useless-undefined': 'off',
         'unicorn/prefer-module': 'off',
-        'no-await-in-loop': 'off',
-        'no-restricted-syntax': 'off',
-        '@typescript-eslint/dot-notation': 'off',
-        'jest/expect-expect': [
-          'error',
-          { assertFunctionNames: ['expect', 'expectRequest'] },
-        ],
       },
     },
     {
@@ -186,14 +197,14 @@ module.exports = {
       },
     },
     {
+      extends: ['plugin:yml/standard', 'plugin:yml/prettier'],
       files: ['*.yaml', '*.yml'],
       parser: 'yaml-eslint-parser',
-      extends: ['plugin:yml/standard', 'plugin:yml/prettier'],
     },
     {
+      extends: ['plugin:jsonc/recommended-with-json', 'plugin:jsonc/prettier'],
       files: ['*.json'],
       parser: 'jsonc-eslint-parser',
-      extends: ['plugin:jsonc/recommended-with-json', 'plugin:jsonc/prettier'],
     },
     {
       files: ['.mocharc.json'],
@@ -202,4 +213,11 @@ module.exports = {
       },
     },
   ],
+  plugins: ['@nx', 'github', 'perfectionist', 'promise', 'simple-import-sort'],
+  root: true,
+  rules: {
+    'eol-last': ['error', 'always'],
+    'filenames/match-regex': ['error', '^[a-z]+(-[a-z]+)*(.[a-z]+)+$'],
+    'no-restricted-syntax': 'off',
+  },
 };
