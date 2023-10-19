@@ -84,20 +84,6 @@ module.exports = {
           },
         ],
         'security/detect-non-literal-fs-filename': 'off',
-        'simple-import-sort/imports': [
-          'error',
-          {
-            groups: [
-              // React comes first, followed by third-party dependencies
-              ['^react', '^@?\\w'],
-              // Side effect imports (ex: import '../some-module')
-              ['^\\u0000'],
-              // Aliased imports (ex: import { Type } from '~/types')
-              ['^~/'],
-              // Relative imports come last
-            ],
-          },
-        ],
         'unicorn/no-null': 'off',
         'unicorn/prefer-module': 'off',
         'unicorn/prefer-top-level-await': 'off',
@@ -213,7 +199,7 @@ module.exports = {
       },
     },
   ],
-  plugins: ['@nx', 'github', 'perfectionist', 'promise', 'simple-import-sort'],
+  plugins: ['@nx', 'github', 'perfectionist', 'promise'],
   root: true,
   rules: {
     'eol-last': ['error', 'always'],
