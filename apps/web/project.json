@@ -1,6 +1,7 @@
 {
   "name": "web",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "tags": ["app:web", "stack:web"],
   "sourceRoot": "apps/web",
   "projectType": "application",
   "targets": {
@@ -57,6 +58,5 @@
       }
     },
     "lint": {}
-  },
-  "tags": ["app:web", "stack:web"]
+  }
 }

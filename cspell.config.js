@@ -1,11 +1,11 @@
+/* eslint-disable import/no-commonjs */
 const vsCodeSettings = require('./.vscode/settings.json');
 
 module.exports = {
   $schema:
     'https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json',
-  version: '0.2',
-  language: 'en',
-  words: vsCodeSettings['cSpell.words'],
+  allowCompoundWords: true,
+  caseSensitive: true,
   dictionaries: [
     'airbnb',
     'companies',
@@ -21,6 +21,7 @@ module.exports = {
     'npm',
     'Pomodoros',
     'typescript',
+    'svgr',
   ],
   ignorePaths: [
     'dist',
@@ -37,7 +38,8 @@ module.exports = {
     '.env-files',
     'apps/infra/terraform-cloud/src/aws-iam',
   ],
-  allowCompoundWords: true,
+  language: 'en',
   useGitignore: true,
-  caseSensitive: true,
+  version: '0.2',
+  words: vsCodeSettings['cSpell.words'],
 };

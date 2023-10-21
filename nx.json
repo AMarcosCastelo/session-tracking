@@ -27,12 +27,12 @@
       "inputs": ["default", "^production"]
     },
     "lint": {
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.js",
-        "{workspaceRoot}/.eslintignore",
-        "{workspaceRoot}/eslint.config.js"
-      ]
+      "executor": "@nx/linter:eslint",
+      "inputs": ["lint"],
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.{ts,tsx,js,jsx,json,yaml}"]
+      }
     },
     "build-storybook": {
       "inputs": [
@@ -44,6 +44,14 @@
     }
   },
   "namedInputs": {
+    "lint": [
+      "default",
+      "{workspaceRoot}/.eslint/eslint.config.js",
+      "{workspaceRoot}/.eslintrc.js",
+      "{workspaceRoot}/.eslintignore",
+      "!{projectRoot}/tsconfig.(build|eslint|spec).json",
+      "!{projectRoot}/.eslintrc.js"
+    ],
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
       "default",

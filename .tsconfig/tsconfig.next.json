@@ -1,0 +1,19 @@
+{
+  "extends": "../tsconfig.base.json",
+  "files": [],
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "es2023"],
+    "jsx": "preserve",
+    "allowJs": true,
+    "jsxImportSource": "@emotion/react",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "types": ["jest", "node"]
+  }
+}

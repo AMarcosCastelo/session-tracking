@@ -192,14 +192,8 @@ module.exports = {
       files: ['*.json'],
       parser: 'jsonc-eslint-parser',
     },
-    {
-      files: ['.mocharc.json'],
-      rules: {
-        'filenames/match-regex': 'off',
-      },
-    },
   ],
-  plugins: ['@nx', 'github', 'perfectionist', 'promise'],
+  plugins: ['@nx', 'github', 'perfectionist', 'promise', 'filenames'],
   root: true,
   rules: {
     'eol-last': ['error', 'always'],

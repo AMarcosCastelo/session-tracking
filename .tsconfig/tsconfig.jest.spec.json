@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "types": ["jest", "node"],
+    "jsx": "preserve"
+  },
+  "files": [],
+  "include": [
+    "jest.config.ts",
+    "**/__tests__/*.ts",
+    "**/__tests__/*.tsx",
+    "src/**/*.d.ts"
+  ]
+}
