@@ -1,18 +1,5 @@
-module.exports = {
-  extends: ['../../../.eslintrc.js'],
-  ignorePatterns: ['**/*'],
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
-      rules: {},
-    },
-    {
-      files: ['*.ts', '*.tsx'],
-      rules: {},
-    },
-    {
-      files: ['*.js', '*.jsx'],
-      rules: {},
-    },
-  ],
-};
+const {
+  createReactEslintConfig,
+} = require('../../../.eslint/eslint.config.react');
+
+module.exports = createReactEslintConfig({ projectPath: __dirname });

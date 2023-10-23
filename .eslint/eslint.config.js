@@ -18,6 +18,9 @@ function createBaseEslintConfig({ projectPath }) {
       {
         files: ['*.ts', '*.tsx'],
         parserOptions: {
+          ecmaFeatures: {
+            jsx: true,
+          },
           ecmaVersion: 2023,
           lib: ['es2022'],
           project: `${projectPath}/tsconfig.eslint.json`,

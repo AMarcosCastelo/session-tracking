@@ -16,9 +16,30 @@
     }
   },
   "targetDefaults": {
-    "build": {
+    "build:vite": {
       "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/{projectRoot}"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "test:vitest": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "coverage/{projectRoot}"
+      }
     },
     "test": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
@@ -34,7 +55,30 @@
         "lintFilePatterns": ["{projectRoot}/**/*.{ts,tsx,js,jsx,json,yaml}"]
       }
     },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "{projectRoot}/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
     "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/{projectRoot}",
+        "configDir": "{projectRoot}/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      },
       "inputs": [
         "default",
         "^production",
@@ -44,6 +88,7 @@
     }
   },
   "namedInputs": {
+    "build": ["production", "^production"],
     "lint": [
       "default",
       "{workspaceRoot}/.eslint/eslint.config.js",

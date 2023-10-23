@@ -6,6 +6,21 @@ app_version: 1.18.2
 ---
 
 The `📄 .tsconfig` is a folder that has all the globals `tsconfig.?.json` files and export all base typescript configs.<br/>
+\`
+
+<br/>
+
+<!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
+
+### 📄 .editorconfig
+
+```editorconfig
+5      charset = utf-8
+6      indent_style = space
+7      indent_size = 2
+8      insert_final_newline = true
+9      trim_trailing_whitespace = true
+```
 
 <br/>
 

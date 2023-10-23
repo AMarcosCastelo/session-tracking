@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react",
-    "types": ["vite/client", "vitest"]
+    "jsxImportSource": "@emotion/react"
   },
   "files": [],
   "include": [],
   "references": [
     {
       "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.eslint.json"
     },
     {
       "path": "./tsconfig.spec.json"
