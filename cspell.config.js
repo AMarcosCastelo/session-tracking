@@ -26,6 +26,7 @@ module.exports = {
   ],
   ignorePaths: [
     'dist',
+    '.swm',
     'node_modules',
     'local',
     'nx.json',
