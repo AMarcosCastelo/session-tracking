@@ -55,6 +55,12 @@
         "lintFilePatterns": ["{projectRoot}/**/*.{ts,tsx,js,jsx,json,yaml}"]
       }
     },
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm tsc -p {projectRoot}/tsconfig.eslint.json --noEmit"
+      }
+    },
     "storybook": {
       "executor": "@nx/storybook:storybook",
       "options": {

@@ -19,6 +19,7 @@
     "airbnb",
     "commitlint",
     "dtos",
+    "lcov",
     "mocharc",
     "nestjs",
     "nrwl",

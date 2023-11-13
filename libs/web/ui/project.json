@@ -9,6 +9,7 @@
     "build:vite": {},
     "test:vitest": {},
     "storybook": {},
-    "build-storybook": {}
+    "build-storybook": {},
+    "type-check": {}
   }
 }
