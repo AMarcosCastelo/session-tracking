@@ -18,7 +18,7 @@ module.exports = {
       body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
       breaking:
         'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
-      footerPrefixesSelect:
+      footerPrefixSelect:
         'Select the ISSUES type of changeList by this change (optional):',
       customFooterPrefix: 'Input ISSUES prefix:',
       footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
@@ -82,9 +82,8 @@ module.exports = {
     useEmoji: true,
     emojiAlign: 'center',
     useAI: false,
-    aiNumber: 3,
+    aiNumber: 5,
     themeColorCode: '',
-    scopes: [],
     allowCustomScopes: true,
     allowEmptyScopes: true,
     customScopesAlign: 'bottom',
