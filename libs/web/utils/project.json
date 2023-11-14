@@ -29,6 +29,7 @@
           "libs/web/utils/package.json"
         ]
       }
-    }
+    },
+    "ts": {}
   }
 }

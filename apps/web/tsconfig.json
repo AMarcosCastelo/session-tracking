@@ -13,9 +13,6 @@
       "path": "./tsconfig.spec.json"
     }
   ],
-  "compilerOptions": {
-    "incremental": true
-  },
   "include": [
     "next-env.d.ts",
     "../../apps/web/.next/types/**/*.ts",

@@ -10,6 +10,6 @@
     "test:vitest": {},
     "storybook": {},
     "build-storybook": {},
-    "type-check": {}
+    "ts": {}
   }
 }

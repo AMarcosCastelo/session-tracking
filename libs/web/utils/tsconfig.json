@@ -2,13 +2,16 @@
   "extends": "../../../tsconfig.base.json",
   "files": [],
   "include": [],
-  "compilerOptions": {},
+  "compilerOptions": { "jsx": "preserve" },
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./tsconfig.library.json"
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./tsconfig.eslint.json"
     }
   ]
 }
